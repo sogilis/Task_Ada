@@ -1,21 +1,26 @@
 with  Ada.Text_IO; use Ada.Text_IO;
 
+with p_position; use p_position;
+
+
 procedure Main is
 
-   task Hello;
-   task body Hello is
-      i : Integer :=0;
+
+   task  Direction;
+   task body Direction is
+      Latitude : T_Latitude :=0.0;
+      Longitude : T_Longitude :=0.0;
    begin
       loop
-         exit when i=10;
-         delay 1.0;
-         i:=i+1;
-         Put_Line("hello");
+         exit when Latitude=90.0;
+         delay 0.01;
+         Latitude:=Latitude+1.0;
+         Put("Latitude : " &T_Latitude'Image(Latitude));
+         Put_Line("       Longitude : " &T_Longitude'Image(Longitude));
       end loop;
-
-   end Hello;
+      Put_Line("Arrived at North Pole");
+   end Direction;
 
 begin
-   --  Insert code here.
-   null;
+null;
 end Main;
